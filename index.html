@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Aplikasi Layanan Digital</title>
+    <style>
+        .page { display: none; }
+        .page.active { display: flex; flex-direction: column; }
+    </style>
+</head>
+<body class="bg-[#2d2d2d] min-h-screen font-sans">
+
+    <!-- 1. HALAMAN SIGN UP -->
+    <div id="signup-page" class="page active items-center justify-center min-h-screen">
+        <div class="bg-[#a855f7] p-8 rounded-lg shadow-2xl w-80 text-center">
+            <h1 class="text-3xl font-bold mb-6 text-black tracking-tighter">SIGN UP</h1>
+            <form class="space-y-4" onsubmit="event.preventDefault(); showPage('home-page')">
+                <input type="text" placeholder="Username" class="w-full p-2 bg-[#d8b4fe] border border-gray-400 focus:outline-none text-sm placeholder-gray-700">
+                <input type="email" placeholder="Email" class="w-full p-2 bg-[#d8b4fe] border border-gray-400 focus:outline-none text-sm placeholder-gray-700">
+                <input type="password" placeholder="Password" class="w-full p-2 bg-[#d8b4fe] border border-gray-400 focus:outline-none text-sm placeholder-gray-700">
+                <button type="submit" class="w-full bg-white text-black py-2 mt-4 font-bold shadow-md hover:bg-gray-100 transition active:scale-95">KIRIM</button>
+            </form>
+            <p class="mt-4 text-xs text-black/70 cursor-pointer hover:underline" onclick="showPage('forgot-page')">Lupa Password?</p>
+        </div>
+    </div>
+
+    <!-- 2. HALAMAN LUPA PASSWORD -->
+    <div id="forgot-page" class="page items-center justify-center min-h-screen">
+        <div class="bg-[#a855f7] p-8 rounded-lg shadow-2xl w-80">
+            <h2 class="text-center text-white font-bold mb-6 text-sm tracking-widest">LUPA KATA SANDI</h2>
+            <form class="space-y-3" onsubmit="event.preventDefault(); alert('Kode terkirim!'); showPage('signup-page')">
+                <input type="text" placeholder="Nama Pengguna" class="w-full p-2 bg-[#d8b4fe] border-none text-sm placeholder-gray-600 focus:ring-2 ring-white/50">
+                <input type="email" placeholder="Email" class="w-full p-2 bg-[#d8b4fe] border-none text-sm placeholder-gray-600 focus:ring-2 ring-white/50">
+                <input type="text" placeholder="Kode Keamanan" class="w-full p-2 bg-[#d8b4fe] border-none text-sm placeholder-gray-600 focus:ring-2 ring-white/50">
+                <button type="submit" class="w-full bg-white text-black py-2 mt-2 font-bold uppercase tracking-widest shadow-md hover:bg-gray-100 active:scale-95">KIRIM</button>
+            </form>
+            <button onclick="showPage('signup-page')" class="mt-4 text-xs text-white/80 hover:text-white block mx-auto underline">Kembali ke Sign Up</button>
+        </div>
+    </div>
+
+    <!-- 3. HALAMAN HOMEPAGE (AWAL) -->
+    <div id="home-page" class="page bg-white min-h-screen">
+        <!-- Navbar -->
+        <nav class="bg-[#d8b4fe] p-4 flex justify-between items-center shadow-sm">
+            <div class="flex space-x-6 text-sm font-bold text-gray-800">
+                <a href="#" class="hover:text-purple-700">Testimonial</a>
+                <a href="#" class="hover:text-purple-700">Riwayat Transaksi</a>
+            </div>
+            <div class="bg-[#a855f7] p-1.5 rounded-full text-white cursor-pointer hover:bg-purple-600 transition" onclick="showPage('signup-page')">
+                
+            </div>
+        </nav>
+
+        <!-- Product Section -->
+        <main class="flex-grow py-16 text-center">
+            <h3 class="text-xl font-black mb-12 text-gray-800">Produk</h3>
+            <div class="flex justify-center space-x-16">
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="p-4 rounded-xl group-hover:bg-purple-50 transition">
+                        <i class="fas fa-bolt text-5xl text-gray-800"></i>
+                    </div>
+                    <span class="mt-2 text-xs font-bold uppercase">Token</span>
+                </div>
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="p-4 rounded-xl group-hover:bg-purple-50 transition">
+                        <i class="fas fa-chart-bar text-5xl text-gray-800"></i>
+                    </div>
+                    <span class="mt-2 text-xs font-bold uppercase">Kuota</span>
+                </div>
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="p-4 rounded-xl group-hover:bg-purple-50 transition">
+                        <i class="fas fa-phone text-5xl text-gray-800 rotate-12"></i>
+                    </div>
+                    <span class="mt-2 text-xs font-bold uppercase">Pulsa</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="bg-[#d8b4fe] p-8 mt-auto border-t border-purple-900">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-bold text-gray-800">
+                <div>
+                    <p class="mb-3 uppercase tracking-wider text-purple-900">Tentang kami</p>
+                    <p class="font-normal text-gray-700 leading-relaxed">Kami menyediakan layanan top up tercepat dan termurah untuk kebutuhan digital harian Anda.</p>
+                </div>
+                <div>
+                    <p class="mb-3 uppercase tracking-wider text-purple-900">Produk kami</p>
+                    <p class="font-normal text-gray-700 leading-relaxed">Tersedia berbagai pilihan paket data, pulsa reguler, dan token listrik PLN prabayar.</p>
+                </div>
+                <div>
+                    <p class="mb-3 uppercase tracking-wider text-purple-900">Layanan kami</p>
+                    <p class="font-normal text-gray-700 leading-relaxed">Customer service siap membantu Anda 24/7 untuk memastikan transaksi berjalan lancar.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Tampilkan halaman yang dipilih
+            document.getElementById(pageId).classList.add('active');
+            
+            // Atur background body (gelap untuk login/forgot, putih untuk home)
+            if (pageId === 'home-page') {
+                document.body.classList.replace('bg-[#2d2d2d]', 'bg-white');
+            } else {
+                document.body.classList.replace('bg-white', 'bg-[#2d2d2d]');
+            }
+        }
+    </script>
+</body>
+</html>
